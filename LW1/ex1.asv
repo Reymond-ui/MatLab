@@ -1,0 +1,38 @@
+%a=1;
+%b=-5;
+%c=4;
+
+a=1;
+b=-4;
+c=4;
+
+%a=1;
+%b=1;
+%c=1;
+
+x1 = (- b + sqrt(b^2 - 4 * a * c)) / (2 * a)
+x2 = (- b - sqrt(b^2 - 4 * a * c)) / (2 * a)
+
+
+x_center = -b / (2*a)
+
+x = linspace(x_center-10,x_center + 10,100);
+y = a * x.^2 + b * x + c;
+figure;
+plot(x, y, "LineWidth", 2);
+if isreal(x1) && isreal(x2)
+    hold on;
+    plot(x1, 0,'ro','MarkerFaceColor','r', 'MarkerSize', 10);
+    plot(x2, 0,'ro','MarkerFaceColor','r', 'MarkerSize', 10);
+    hold off;
+else
+    fprintf("Корни мнимые")
+end
+
+grid on;
+title("Вот ваша парабола");
+xlabel("x");
+ylabel("y");
+
+
+
